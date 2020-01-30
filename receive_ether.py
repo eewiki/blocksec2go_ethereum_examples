@@ -60,7 +60,6 @@ key_id = 1
 reader = get_reader()
 activate_card( reader )
 public_key = get_public_key( reader, key_id )
-#public_key = bytes.fromhex( "045476016257ef9cc9a78313000caf735bb7b53a98200950b0b9e3738e50f00172d57e4ad31ac802b32abddc8238adfc1cc0c6142929c34158d75b7476aebe70cf" )
 inf_card_addr = w3.toChecksumAddress( w3.keccak( public_key[1:] )[-20:].hex() )
 print( f'Address of account {key_id} on Infineon card: { inf_card_addr }' )
 print( f'Balance of account {key_id} on Infineon card: { w3.fromWei( w3.eth.getBalance( inf_card_addr ), "ether" ) }' )
